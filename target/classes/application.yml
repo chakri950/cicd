@@ -1,0 +1,27 @@
+## Spring Boot Actuator Info Endpoint Customization
+info:
+
+  # static properties
+  app:
+    name: Spring Boot Actuator Info Endpoint Configuration Example
+    description: This tutorial demonstrates how to customize the Spring Boot Actuator Info Endpoint.
+
+  # build properties from maven
+  build:
+    groupId: com.cicd
+    artifact: demo
+    name: demo
+    version: 0.0.1-SNAPSHOT
+
+  # environment variables
+  env:
+    java:
+      vendor: ${java.specification.vendor}
+      vm-name: ${java.vm.name}
+      runtime-version: ${java.runtime.version}
+
+
+management:
+  # security
+  security:
+    enabled : false
