@@ -4,6 +4,7 @@ pipeline {
    tools {
       // Install the Maven version configured as "M3" and add it to the path.
       maven "M3"
+      jdk "JDK8"
    }
    
    		
@@ -38,11 +39,15 @@ pipeline {
       }
 	  
 
-	  //stage('validation')
+	  //stage('Staging')
 	  //{
-		//print "checking whether the jar is up and running"
-		//bat "jps | find /I "demo-0.0.1-SNAPSHOT.jar"
-		//bat "jps"
+		//steps {
+			//bat "FOR /F \"tokens=5 delims= \" %%G IN ('netstat -aon ^| findstr 0.0.0.0:8080') DO TaskKill.exe /F /PID %%G"
+			//withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
+                //cd $WORKSPACE;
+                //bat 'javaw -jar ./target/demo-0.0.1-SNAPSHOT.jar'
+            //}
+		//}
  	  //}	  
    }
 }
