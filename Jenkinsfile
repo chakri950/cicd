@@ -36,15 +36,15 @@ pipeline {
       }
 	  
 
-	  //stage('Staging')
-	  //{
-		//steps {
-			//bat "FOR /F \"tokens=5 delims= \" %%G IN ('netstat -aon ^| findstr 0.0.0.0:8080') DO TaskKill.exe /F /PID %%G"
-			//withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
+	  stage('Staging')
+	  {
+		steps {
+			bat "FOR /F \"tokens=5 delims= \" %%G IN ('netstat -aon ^| findstr 0.0.0.0:8080') DO TaskKill.exe /F /PID %%G"
+			withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
 				//cd $WORKSPACE;
-				//bat 'start /B javaw -jar ./target/demo-0.0.1-SNAPSHOT.jar'
-			//}
-		//}
- 	  //}
+				bat 'start /B javaw -jar ./target/demo-0.0.1-SNAPSHOT.jar'
+			}
+		}
+ 	  }
    }
 }
